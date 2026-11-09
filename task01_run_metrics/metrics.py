@@ -12,9 +12,13 @@ def is_build_green(failed, broken):  # True, только если нет ни �
     return build_green
 
 
-def format_duration(seconds):	#Целые секунды → строка «N мин M сек»
+def format_duration(seconds):  # Целые секунды → строка «N мин M сек»
     minutes = seconds // 60
     seconds = seconds % 60
     return f"{minutes} мин {seconds} сек"
 
-# is_within_tolerance(actual, expected, tolerance)	#True, если actual отличается от expected не больше чем на tolerance	(10.2, 10.0, 0.5) → True; (9.4, 10.0, 0.5) → False
+
+def is_within_tolerance(actual, expected,
+                        tolerance):  # True, если actual отличается от expected не больше чем на tolerance
+    diff = abs(expected - actual)
+    return diff <= tolerance

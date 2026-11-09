@@ -58,6 +58,7 @@ def test_is_build_green_false_zero_broken():
     result_function = metrics.is_build_green(1, 0)
     assert result_function == result_test
 
+
 def test_format_duration_zero_time():
     result_string = "0 мин 0 сек"
     result_function = metrics.format_duration(0)
@@ -80,3 +81,45 @@ def test_format_duration_zero_seconds():
     result_string = "2 мин 0 сек"
     result_function = metrics.format_duration(120)
     assert result_function == result_string
+
+
+def test_is_within_tolerance_true():
+    result_test = True
+    result_function = metrics.is_within_tolerance(10.2, 10.0, 0.5)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_false():
+    result_test = False
+    result_function = metrics.is_within_tolerance(9.4, 10.0, 0.5)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_true_high_precision():
+    result_test = True
+    result_function = metrics.is_within_tolerance(1.0000000023, 1.0000000011, 0.000000002)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_false_high_precision():
+    result_test = False
+    result_function = metrics.is_within_tolerance(12, 1.0000000011, 0.000000002)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_false_reverse():
+    result_test = False
+    result_function = metrics.is_within_tolerance(-9.4, -10.0, 0.5)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_true_reverse():
+    result_test = True
+    result_function = metrics.is_within_tolerance(-10.2, -10.0, 0.5)
+    assert result_function == result_test
+
+
+def test_is_within_tolerance_int():
+    result_test = False
+    result_function = metrics.is_within_tolerance(10, 11, 0.5)
+    assert result_function == result_test
