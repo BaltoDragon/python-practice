@@ -17,8 +17,8 @@ def is_build_green(failed, broken):
 def format_duration(seconds):
     """Целые секунды → строка «N мин M сек»"""
     minutes = seconds // 60
-    seconds = seconds % 60
-    return f"{minutes} мин {seconds} сек"
+    remaining_seconds = seconds % 60
+    return f"{minutes} мин {remaining_seconds} сек"
 
 
 def is_within_tolerance(actual, expected, tolerance):
