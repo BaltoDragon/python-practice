@@ -80,4 +80,4 @@ def test_is_within_tolerance_limit_value_2():
 
 
 def test_is_within_tolerance_hard_diff():
-    assert not metrics.is_within_tolerance(10.9, 1.0, 0.5)
+    assert not metrics.is_within_tolerance(10.9, 10.0, 0.5)
