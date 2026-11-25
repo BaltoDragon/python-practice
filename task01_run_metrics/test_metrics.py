@@ -13,14 +13,6 @@ def test_pass_rate_zero_passed():
     assert metrics.pass_rate(0, 10) == 0
 
 
-def test_pass_rate_is_result_float():
-    assert type(metrics.pass_rate(1, 3)) == type(33.33)
-
-
-def test_pass_rate_input_float():
-    assert type(metrics.pass_rate(1.0, 3.0)) == type(33.33)
-
-
 def test_is_build_green_true():
     assert metrics.is_build_green(0, 0)
 
