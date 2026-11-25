@@ -22,15 +22,15 @@ def test_pass_rate_input_float():
 
 
 def test_is_build_green_true():
-    assert metrics.is_build_green(0, 0) == True
+    assert metrics.is_build_green(0, 0)
 
 
 def test_is_build_green_false_zero_failed():
-    assert metrics.is_build_green(0, 2) == False
+    assert not metrics.is_build_green(0, 2)
 
 
 def test_is_build_green_false_zero_broken():
-    assert metrics.is_build_green(1, 0) == False
+    assert not metrics.is_build_green(1, 0)
 
 
 def test_format_duration_zero_time():
@@ -50,42 +50,42 @@ def test_format_duration_zero_seconds():
 
 
 def test_is_within_tolerance_true():
-    assert metrics.is_within_tolerance(10.2, 10.0, 0.5) == True
+    assert metrics.is_within_tolerance(10.2, 10.0, 0.5)
 
 
 def test_is_within_tolerance_false():
-    assert metrics.is_within_tolerance(9.4, 10.0, 0.5) == False
+    assert not metrics.is_within_tolerance(9.4, 10.0, 0.5)
 
 
 def test_is_within_tolerance_true_high_precision():
     result_function = metrics.is_within_tolerance(1.0000000023, 1.0000000011, 0.000000002)
-    assert result_function == True
+    assert result_function
 
 
 def test_is_within_tolerance_false_high_precision():
     result_function = metrics.is_within_tolerance(12, 1.0000000011, 0.000000002)
-    assert result_function == False
+    assert not result_function
 
 
 def test_is_within_tolerance_false_reverse():
-    assert metrics.is_within_tolerance(-9.4, -10.0, 0.5) == False
+    assert not metrics.is_within_tolerance(-9.4, -10.0, 0.5)
 
 
 def test_is_within_tolerance_true_reverse():
-    assert metrics.is_within_tolerance(-10.2, -10.0, 0.5) == True
+    assert metrics.is_within_tolerance(-10.2, -10.0, 0.5)
 
 
 def test_is_within_tolerance_int():
-    assert metrics.is_within_tolerance(10, 11, 0.5) == False
+    assert not metrics.is_within_tolerance(10, 11, 0.5)
 
 
 def test_is_within_tolerance_limit_value_1():
-    assert metrics.is_within_tolerance(1.1, 1.0, 0.1) == True
+    assert metrics.is_within_tolerance(1.1, 1.0, 0.1)
 
 
 def test_is_within_tolerance_limit_value_2():
-    assert metrics.is_within_tolerance(10.5, 10.0, 0.5) == True
+    assert metrics.is_within_tolerance(10.5, 10.0, 0.5)
 
 
 def test_is_within_tolerance_hard_diff():
-    assert metrics.is_within_tolerance(10.9, 1.0, 0.5) == False
+    assert not metrics.is_within_tolerance(10.9, 1.0, 0.5)
