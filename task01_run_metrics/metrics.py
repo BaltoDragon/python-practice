@@ -1,3 +1,5 @@
+import math
+
 def pass_rate(passed, total):  # Процент успешных тестов, округлённый до 2 знаков
     success = passed * 100 / total
     success = round(success, 2)
@@ -18,4 +20,4 @@ def format_duration(seconds):  # Целые секунды → строка «N 
 def is_within_tolerance(actual, expected,
                         tolerance):  # True, если actual отличается от expected не больше чем на tolerance
     diff = abs(expected - actual)
-    return diff <= tolerance
+    return diff <= tolerance or math.isclose(diff, tolerance)

@@ -123,3 +123,18 @@ def test_is_within_tolerance_int():
     result_test = False
     result_function = metrics.is_within_tolerance(10, 11, 0.5)
     assert result_function == result_test
+
+def test_is_within_tolerance_limit_value_1():
+    result_test = True
+    result_function = metrics.is_within_tolerance(1.1, 1.0, 0.1)
+    assert result_function == result_test
+
+def test_is_within_tolerance_limit_value_2():
+    result_test = True
+    result_function = metrics.is_within_tolerance(10.5, 10.0, 0.5)
+    assert result_function == result_test
+
+def test_is_within_tolerance_hard_diff():
+    result_test = False
+    result_function = metrics.is_within_tolerance(10.9, 1.0, 0.5)
+    assert result_function == result_test
