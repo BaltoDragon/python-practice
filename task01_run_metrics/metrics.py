@@ -1,6 +1,3 @@
-from operator import truediv
-
-
 def pass_rate(passed, total):  # Процент успешных тестов, округлённый до 2 знаков
     success = passed * 100 / total
     success = round(success, 2)
