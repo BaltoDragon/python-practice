@@ -1,13 +1,13 @@
 import metrics
 
 total_tests = int(input("Общее количество тестов: "))
-passed_test = int(input("Из них passed: "))
-failed_test = int(input("Из них failed: "))
-broken_test = int(input("Из них broken: "))
+passed_tests = int(input("Из них passed: "))
+failed_tests = int(input("Из них failed: "))
+broken_tests = int(input("Из них broken: "))
 time_sec = int(input("Время выполнения, секунды: "))
 
-success_test = metrics.pass_rate(passed_test, total_tests)
-build_green = metrics.is_build_green(failed_test, broken_test)
+success_test = metrics.pass_rate(passed_tests, total_tests)
+build_green = metrics.is_build_green(failed_tests, broken_tests)
 duration_text = metrics.format_duration(time_sec)
 
 print()

@@ -54,7 +54,7 @@ def test_is_within_tolerance_numbers_is_high_precision():
     assert result_function
 
 
-def test_is_within_tolerance_numbers_is_high_precision_2():
+def test_is_within_tolerance_numbers_is_high_precision_with_integer():
     result_function = metrics.is_within_tolerance(12, 1.0000000011, 0.000000002)
     assert not result_function
 
@@ -71,11 +71,11 @@ def test_is_within_tolerance_integer_number():
     assert not metrics.is_within_tolerance(10, 11, 0.5)
 
 
-def test_is_within_tolerance_limit_value_1():
+def test_is_within_tolerance_float_boundary():
     assert metrics.is_within_tolerance(1.1, 1.0, 0.1)
 
 
-def test_is_within_tolerance_limit_value_2():
+def test_is_within_tolerance_exact_boundary():
     assert metrics.is_within_tolerance(10.5, 10.0, 0.5)
 
 
